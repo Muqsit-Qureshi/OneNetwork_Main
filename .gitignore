@@ -1,0 +1,26 @@
+# Ignore Composer dependencies
+/vendor/
+
+# Ignore environment files
+.env
+
+# Ignore OS junk files
+.DS_Store
+Thumbs.db
+
+# Ignore logs and cache
+*.log
+*.cache
+/storage/logs/*
+/storage/framework/cache/*
+/storage/framework/sessions/*
+/storage/framework/views/*
+
+# Ignore IDE/project files
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Ignore node modules if you add frontend
+/node_modules/

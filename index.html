@@ -1379,17 +1379,18 @@
 </head>
 <!--Start of Tawk.to Script-->
 <script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/68b53cd2088b0319223eb39d/1j41vb5t8';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
+  var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+  (function () {
+    var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+    s1.async = true;
+    s1.src = 'https://embed.tawk.to/68b53cd2088b0319223eb39d/1j41vb5t8';
+    s1.charset = 'UTF-8';
+    s1.setAttribute('crossorigin', '*');
+    s0.parentNode.insertBefore(s1, s0);
+  })();
 </script>
 <!--End of Tawk.to Script-->
+
 <body>
   <div id="__next">
     <!-- Header Section -->
@@ -1453,15 +1454,15 @@ s0.parentNode.insertBefore(s1,s0);
         <span class="close-modal" id="closeModal">&times;</span>
         <h2>Get Free Consulation </h2>
         <p>Fill out the form and we'll get back to you shortly.</p>
-        <form class="talk-form">
+        <form class="talk-form" action="send-mail.php" method="POST">
           <div class="form-group">
-            <input type="text" placeholder="Your Name" required>
+            <input type="text" name="name" placeholder="Your Name" required>
           </div>
           <div class="form-group">
-            <input type="email" placeholder="Your Email" required>
+            <input type="email" name="email" placeholder="Your Email" required>
           </div>
           <div class="form-group">
-            <textarea placeholder="Your Message" rows="4" required></textarea>
+            <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
           </div>
           <button type="submit" class="submit-btn">Send Message</button>
         </form>
@@ -1626,47 +1627,47 @@ s0.parentNode.insertBefore(s1,s0);
                 </ul>
               </div>
             </div>
-              <!-- Cyber Security -->
-      <div class="service-card">
-        <div class="service-icon"><i class="fas fa-shield-alt"></i></div>
-        <h3 class="service-title">Cyber Security</h3>
-        <p class="service-description">
-          Comprehensive security solutions to protect your data, networks, and systems from emerging threats.
-        </p>
-        <a href="javascript:void(0)" class="service-link" onclick="toggleDetails(this)">
-          Learn more <i class="fas fa-arrow-right"></i>
-        </a>
-        <div class="service-details" style="display:none; margin-top: 1rem;">
-          <ul>
-            <li>🛡️ Firewall & intrusion prevention systems</li>
-            <li>🔍 Penetration testing & vulnerability assessment</li>
-            <li>🔒 Endpoint & mobile device protection</li>
-            <li>📊 SOC monitoring & incident response</li>
-            <li>✅ Compliance audits (ISO, GDPR, HIPAA)</li>
-          </ul>
-        </div>
-      </div>
+            <!-- Cyber Security -->
+            <div class="service-card">
+              <div class="service-icon"><i class="fas fa-shield-alt"></i></div>
+              <h3 class="service-title">Cyber Security</h3>
+              <p class="service-description">
+                Comprehensive security solutions to protect your data, networks, and systems from emerging threats.
+              </p>
+              <a href="javascript:void(0)" class="service-link" onclick="toggleDetails(this)">
+                Learn more <i class="fas fa-arrow-right"></i>
+              </a>
+              <div class="service-details" style="display:none; margin-top: 1rem;">
+                <ul>
+                  <li>🛡️ Firewall & intrusion prevention systems</li>
+                  <li>🔍 Penetration testing & vulnerability assessment</li>
+                  <li>🔒 Endpoint & mobile device protection</li>
+                  <li>📊 SOC monitoring & incident response</li>
+                  <li>✅ Compliance audits (ISO, GDPR, HIPAA)</li>
+                </ul>
+              </div>
+            </div>
 
-      <!-- Network Infrastructure -->
-      <div class="service-card">
-        <div class="service-icon"><i class="fas fa-server"></i></div>
-        <h3 class="service-title">Network Infrastructure</h3>
-        <p class="service-description">
-          Design, implementation, and management of robust network infrastructures for optimal performance.
-        </p>
-        <a href="javascript:void(0)" class="service-link" onclick="toggleDetails(this)">
-          Learn more <i class="fas fa-arrow-right"></i>
-        </a>
-        <div class="service-details" style="display:none; margin-top: 1rem;">
-          <ul>
-            <li>📡 Enterprise-grade LAN/WAN setup</li>
-            <li>🌐 Secure VPNs & remote access solutions</li>
-            <li>📶 Wi-Fi deployment & optimization</li>
-            <li>⚙️ Network monitoring & performance tuning</li>
-            <li>🔧 Ongoing maintenance & troubleshooting</li>
-          </ul>
-        </div>
-      </div>
+            <!-- Network Infrastructure -->
+            <div class="service-card">
+              <div class="service-icon"><i class="fas fa-server"></i></div>
+              <h3 class="service-title">Network Infrastructure</h3>
+              <p class="service-description">
+                Design, implementation, and management of robust network infrastructures for optimal performance.
+              </p>
+              <a href="javascript:void(0)" class="service-link" onclick="toggleDetails(this)">
+                Learn more <i class="fas fa-arrow-right"></i>
+              </a>
+              <div class="service-details" style="display:none; margin-top: 1rem;">
+                <ul>
+                  <li>📡 Enterprise-grade LAN/WAN setup</li>
+                  <li>🌐 Secure VPNs & remote access solutions</li>
+                  <li>📶 Wi-Fi deployment & optimization</li>
+                  <li>⚙️ Network monitoring & performance tuning</li>
+                  <li>🔧 Ongoing maintenance & troubleshooting</li>
+                </ul>
+              </div>
+            </div>
 
           </div>
         </div>
@@ -2092,17 +2093,17 @@ s0.parentNode.insertBefore(s1,s0);
     });
 
     function toggleDetails(el) {
-  const details = el.nextElementSibling;
-  const isVisible = details.style.display === "block";
+      const details = el.nextElementSibling;
+      const isVisible = details.style.display === "block";
 
-  // Toggle
-  details.style.display = isVisible ? "none" : "block";
+      // Toggle
+      details.style.display = isVisible ? "none" : "block";
 
-  // Change button text
-  el.innerHTML = isVisible 
-    ? 'Learn more <i class="fas fa-arrow-right"></i>' 
-    : 'Show less <i class="fas fa-arrow-up"></i>';
-}
+      // Change button text
+      el.innerHTML = isVisible
+        ? 'Learn more <i class="fas fa-arrow-right"></i>'
+        : 'Show less <i class="fas fa-arrow-up"></i>';
+    }
   </script>
 </body>
 
