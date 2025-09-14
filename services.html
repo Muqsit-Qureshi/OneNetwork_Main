@@ -43,14 +43,13 @@
         rel="stylesheet">
 
     <style>
-     
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-   .services-hero {
+
+        .services-hero {
             position: relative;
             min-height: 100vh;
             overflow: hidden;
@@ -83,7 +82,7 @@
             transition: transform 10s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             z-index: -1;
         }
-        
+
         .swiper-slide-active .slide-background {
             transform: scale(1);
         }
@@ -104,7 +103,7 @@
             max-width: 800px;
             width: 90%;
         }
-        
+
         .swiper-slide-active .glass-card {
             opacity: 1;
             transform: translateY(0) scale(1);
@@ -122,7 +121,7 @@
             transform: translateY(20px);
             transition: all 0.8s ease 0.2s;
         }
-        
+
         .swiper-slide-active .service-number {
             opacity: 1;
             transform: translateY(0);
@@ -139,7 +138,7 @@
             transform: translateY(20px);
             transition: all 0.8s ease 0.4s;
         }
-        
+
         .swiper-slide-active .hero-subtitle {
             opacity: 1;
             transform: translateY(0);
@@ -155,17 +154,29 @@
             transform: translateY(30px);
             transition: all 0.8s ease 0.6s;
         }
-        
+
         .swiper-slide-active .hero-title {
             opacity: 1;
             transform: translateY(0);
         }
-        
-        .hero-title span {
+
+        /* .hero-title span {
             color: var(--accent-light);
             background: linear-gradient(135deg, var(--accent-light), var(--secondary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            display: inline-block;
+        } */
+        .hero-title span {
+            color: var(--accent-light);
+            background: linear-gradient(135deg, var(--accent-light), var(--secondary));
+            background-clip: text;
+            /* Standard property */
+            -webkit-background-clip: text;
+            /* Vendor prefix for WebKit browsers */
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+            /* Fallback */
             display: inline-block;
         }
 
@@ -179,7 +190,7 @@
             transform: translateY(30px);
             transition: all 0.8s ease 0.8s;
         }
-        
+
         .swiper-slide-active .hero-description {
             opacity: 1;
             transform: translateY(0);
@@ -192,14 +203,15 @@
             transform: translateY(30px);
             transition: all 0.8s ease 1s;
         }
-        
+
         .swiper-slide-active .hero-cta {
             opacity: 1;
             transform: translateY(0);
         }
 
         /* Buttons */
-        .primary-btn, .secondary-btn {
+        .primary-btn,
+        .secondary-btn {
             padding: 14px 32px;
             border-radius: 50px;
             margin: 0.5rem;
@@ -211,24 +223,24 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .primary-btn {
             background: linear-gradient(135deg, var(--accent), var(--primary));
             color: #fff;
             box-shadow: 0 6px 18px rgba(0, 124, 240, 0.35);
         }
-        
+
         .primary-btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 8px 22px rgba(0, 201, 167, 0.45);
         }
-        
+
         .secondary-btn {
             background: transparent;
             border: 2px solid var(--accent-light);
             color: var(--accent-light);
         }
-        
+
         .secondary-btn:hover {
             background: var(--accent-light);
             color: #fff;
@@ -239,7 +251,7 @@
         .swiper-pagination {
             bottom: 30px !important;
         }
-        
+
         .swiper-pagination-bullet {
             width: 14px;
             height: 14px;
@@ -249,7 +261,7 @@
             margin: 0 8px !important;
             transition: all 0.3s ease;
         }
-        
+
         .swiper-pagination-bullet-active {
             background: var(--accent-light);
             box-shadow: 0 0 10px var(--accent-light);
@@ -257,7 +269,8 @@
         }
 
         /* Navigation Arrows */
-        .swiper-button-next, .swiper-button-prev {
+        .swiper-button-next,
+        .swiper-button-prev {
             color: #fff;
             background: rgba(0, 0, 0, 0.4);
             width: 60px;
@@ -267,13 +280,15 @@
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
-        
-        .swiper-button-next:after, .swiper-button-prev:after {
+
+        .swiper-button-next:after,
+        .swiper-button-prev:after {
             font-size: 1.5rem;
             font-weight: bold;
         }
-        
-        .swiper-button-next:hover, .swiper-button-prev:hover {
+
+        .swiper-button-next:hover,
+        .swiper-button-prev:hover {
             background: rgba(0, 0, 0, 0.6);
             transform: scale(1.1);
         }
@@ -288,7 +303,7 @@
             background: rgba(255, 255, 255, 0.2);
             z-index: 10;
         }
-        
+
         .swiper-progress-bar .slide-progress {
             height: 100%;
             width: 0%;
@@ -302,20 +317,22 @@
                 padding: 2rem;
                 width: 95%;
             }
-            
+
             .hero-title {
                 font-size: 2.5rem;
             }
-            
+
             .hero-description {
                 font-size: 1.1rem;
             }
-            
-            .swiper-button-next, .swiper-button-prev {
+
+            .swiper-button-next,
+            .swiper-button-prev {
                 display: none;
             }
-            
-            .primary-btn, .secondary-btn {
+
+            .primary-btn,
+            .secondary-btn {
                 padding: 12px 24px;
                 font-size: 0.9rem;
             }
@@ -1574,17 +1591,18 @@
 </head>
 <!--Start of Tawk.to Script-->
 <script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/68b53cd2088b0319223eb39d/1j41vb5t8';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    (function () {
+        var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+        s1.async = true;
+        s1.src = 'https://embed.tawk.to/68b53cd2088b0319223eb39d/1j41vb5t8';
+        s1.charset = 'UTF-8';
+        s1.setAttribute('crossorigin', '*');
+        s0.parentNode.insertBefore(s1, s0);
+    })();
 </script>
 <!--End of Tawk.to Script-->
+
 <body>
     <div id="__next">
         <!-- Header Section -->
@@ -1662,167 +1680,180 @@ s0.parentNode.insertBefore(s1,s0);
                 </form>
             </div>
         </div>
-<!--  -->
+        <!--  -->
 
-  <main>
-         <!-- Enhanced Hero Slider -->
-    <section class="services-hero">
-        <div class="swiper servicesSwiper">
-            <!-- Progress Bar -->
-            <div class="swiper-progress-bar">
-                <div class="slide-progress"></div>
-            </div>
-            
-            <div class="swiper-wrapper">
-                <!-- Slide 1: Web Development -->
-                <div class="swiper-slide">
-                    <div class="slide-background" style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80');"></div>
-                    <div class="slide-content">
-                        <div class="glass-card">
-                            <p class="service-number">Service 01</p>
-                            <p class="hero-subtitle">Web Solutions</p>
-                            <h1 class="hero-title">
-                                Professional <span>Web Development</span>
-                            </h1>
-                            <p class="hero-description">
-                                Custom websites and web applications built with cutting-edge technologies. We create responsive, 
-                                SEO-friendly digital experiences that drive engagement and conversions.
-                            </p>
-                            <div class="hero-cta">
-                                <button class="primary-btn" id="heroTalkBtn">Start Your Project</button>
-                                <button class="secondary-btn" data-service="web">View Details</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Slide 2: App Development -->
-                <div class="swiper-slide">
-                    <div class="slide-background" style="background-image: url('https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80');"></div>
-                    <div class="slide-content">
-                        <div class="glass-card">
-                            <p class="service-number">Service 02</p>
-                            <p class="hero-subtitle">Mobile Solutions</p>
-                            <h1 class="hero-title">
-                                Cross-Platform <span>App Development</span>
-                            </h1>
-                            <p class="hero-description">
-                                Native and hybrid mobile applications for iOS and Android. We build intuitive, 
-                                high-performance apps that deliver exceptional user experiences.
-                            </p>
-                            <div class="hero-cta">
-                                <button class="primary-btn" id="heroTalkBtn">Discuss Your App</button>
-                                <button class="secondary-btn" data-service="app">View Details</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Slide 3: UI/UX Design -->
-                <div class="swiper-slide">
-                    <div class="slide-background" style="background-image: url('https://images.unsplash.com/photo-1545235617-9465d2a55698?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80');"></div>
-                    <div class="slide-content">
-                        <div class="glass-card">
-                            <p class="service-number">Service 03</p>
-                            <p class="hero-subtitle">Design Excellence</p>
-                            <h1 class="hero-title">
-                                Intuitive <span>UI/UX Design</span>
-                            </h1>
-                            <p class="hero-description">
-                                User-centered designs that enhance engagement and satisfaction. We create beautiful, 
-                                functional interfaces that convert visitors into loyal customers.
-                            </p>
-                            <div class="hero-cta">
-                                <button class="primary-btn" id="heroTalkBtn">Design With Us</button>
-                                <button class="secondary-btn" data-service="uiux">View Details</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Slide 4: Cyber Security -->
-                <div class="swiper-slide">
-                    <div class="slide-background" style="background-image: url('assets/images/cyber%20security1.jpg');"></div>
-                    <div class="slide-content">
-                        <div class="glass-card">
-                            <p class="service-number">Service 04</p>
-                            <p class="hero-subtitle">Protection</p>
-                            <h1 class="hero-title">
-                                Advanced <span>Cyber Security</span>
-                            </h1>
-                            <p class="hero-description">
-                                Comprehensive security solutions to protect your digital assets. We implement 
-                                robust measures to safeguard against threats and ensure compliance.
-                            </p>
-                            <div class="hero-cta">
-                                <button class="primary-btn" id="heroTalkBtn">Secure Your Business</button>
-                                <button class="secondary-btn" data-service="cyber">View Details</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Slide 5: SEO -->
-                <div class="swiper-slide">
-                    <div class="slide-background" style="background-image: url('https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80');"></div>
-                    <div class="slide-content">
-                        <div class="glass-card">
-                            <p class="service-number">Service 05</p>
-                            <p class="hero-subtitle">Visibility</p>
-                            <h1 class="hero-title">
-                                Strategic <span>SEO Services</span>
-                            </h1>
-                            <p class="hero-description">
-                                Data-driven SEO strategies to boost your online visibility. We optimize your 
-                                digital presence to drive organic traffic and improve search rankings.
-                            </p>
-                            <div class="hero-cta">
-                                <button class="primary-btn" id="heroTalkBtn">Boost Your Rankings</button>
-                                <button class="secondary-btn" data-service="seo">View Details</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Slide 6: Branding -->
-                <div class="swiper-slide">
-                    <div class="slide-background" style="background-image: url('https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80');"></div>
-                    <div class="slide-content">
-                        <div class="glass-card">
-                            <p class="service-number">Service 06</p>
-                            <p class="hero-subtitle">Identity</p>
-                            <h1 class="hero-title">
-                                Memorable <span>Branding Solutions</span>
-                            </h1>
-                            <p class="hero-description">
-                                Complete branding packages that tell your unique story. We develop cohesive 
-                                brand identities that resonate with your target audience.
-                            </p>
-                            <div class="hero-cta">
-                                <button class="primary-btn" id="heroTalkBtn">Build Your Brand</button>
-                                <button class="secondary-btn" data-service="branding">View Details</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Add pagination -->
-            <div class="swiper-pagination"></div>
-            
-            <!-- Navigation buttons -->
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-        </div>
-    </section>
-<!--  -->
         <main>
-            <div class="min-h-[63.5px] md:min-h-[100.5px] lg:min-h-[100.5px]">
-                <div class="pre-loader"></div>
-            </div>
+            <!-- Enhanced Hero Slider -->
+            <section class="services-hero">
+                <div class="swiper servicesSwiper">
+                    <!-- Progress Bar -->
+                    <div class="swiper-progress-bar">
+                        <div class="slide-progress"></div>
+                    </div>
 
-            <!-- Hero Section -->
-            <!-- <section class="hero-section">
+                    <div class="swiper-wrapper">
+                        <!-- Slide 1: Web Development -->
+                        <div class="swiper-slide">
+                            <div class="slide-background"
+                                style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80');">
+                            </div>
+                            <div class="slide-content">
+                                <div class="glass-card">
+                                    <p class="service-number">Service 01</p>
+                                    <p class="hero-subtitle">Web Solutions</p>
+                                    <h1 class="hero-title">
+                                        Professional <span>Web Development</span>
+                                    </h1>
+                                    <p class="hero-description">
+                                        Custom websites and web applications built with cutting-edge technologies. We
+                                        create responsive,
+                                        SEO-friendly digital experiences that drive engagement and conversions.
+                                    </p>
+                                    <div class="hero-cta">
+                                        <button class="primary-btn" id="heroTalkBtn">Start Your Project</button>
+                                        <button class="secondary-btn" data-service="web">View Details</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 2: App Development -->
+                        <div class="swiper-slide">
+                            <div class="slide-background"
+                                style="background-image: url('https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80');">
+                            </div>
+                            <div class="slide-content">
+                                <div class="glass-card">
+                                    <p class="service-number">Service 02</p>
+                                    <p class="hero-subtitle">Mobile Solutions</p>
+                                    <h1 class="hero-title">
+                                        Cross-Platform <span>App Development</span>
+                                    </h1>
+                                    <p class="hero-description">
+                                        Native and hybrid mobile applications for iOS and Android. We build intuitive,
+                                        high-performance apps that deliver exceptional user experiences.
+                                    </p>
+                                    <div class="hero-cta">
+                                        <button class="primary-btn" id="heroTalkBtn">Discuss Your App</button>
+                                        <button class="secondary-btn" data-service="app">View Details</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 3: UI/UX Design -->
+                        <div class="swiper-slide">
+                            <div class="slide-background"
+                                style="background-image: url('https://images.unsplash.com/photo-1545235617-9465d2a55698?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80');">
+                            </div>
+                            <div class="slide-content">
+                                <div class="glass-card">
+                                    <p class="service-number">Service 03</p>
+                                    <p class="hero-subtitle">Design Excellence</p>
+                                    <h1 class="hero-title">
+                                        Intuitive <span>UI/UX Design</span>
+                                    </h1>
+                                    <p class="hero-description">
+                                        User-centered designs that enhance engagement and satisfaction. We create
+                                        beautiful,
+                                        functional interfaces that convert visitors into loyal customers.
+                                    </p>
+                                    <div class="hero-cta">
+                                        <button class="primary-btn" id="heroTalkBtn">Design With Us</button>
+                                        <button class="secondary-btn" data-service="uiux">View Details</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 4: Cyber Security -->
+                        <div class="swiper-slide">
+                            <div class="slide-background"
+                                style="background-image: url('assets/images/cyber%20security1.jpg');"></div>
+                            <div class="slide-content">
+                                <div class="glass-card">
+                                    <p class="service-number">Service 04</p>
+                                    <p class="hero-subtitle">Protection</p>
+                                    <h1 class="hero-title">
+                                        Advanced <span>Cyber Security</span>
+                                    </h1>
+                                    <p class="hero-description">
+                                        Comprehensive security solutions to protect your digital assets. We implement
+                                        robust measures to safeguard against threats and ensure compliance.
+                                    </p>
+                                    <div class="hero-cta">
+                                        <button class="primary-btn" id="heroTalkBtn">Secure Your Business</button>
+                                        <button class="secondary-btn" data-service="cyber">View Details</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 5: SEO -->
+                        <div class="swiper-slide">
+                            <div class="slide-background"
+                                style="background-image: url('https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80');">
+                            </div>
+                            <div class="slide-content">
+                                <div class="glass-card">
+                                    <p class="service-number">Service 05</p>
+                                    <p class="hero-subtitle">Visibility</p>
+                                    <h1 class="hero-title">
+                                        Strategic <span>SEO Services</span>
+                                    </h1>
+                                    <p class="hero-description">
+                                        Data-driven SEO strategies to boost your online visibility. We optimize your
+                                        digital presence to drive organic traffic and improve search rankings.
+                                    </p>
+                                    <div class="hero-cta">
+                                        <button class="primary-btn" id="heroTalkBtn">Boost Your Rankings</button>
+                                        <button class="secondary-btn" data-service="seo">View Details</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 6: Branding -->
+                        <div class="swiper-slide">
+                            <div class="slide-background"
+                                style="background-image: url('https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80');">
+                            </div>
+                            <div class="slide-content">
+                                <div class="glass-card">
+                                    <p class="service-number">Service 06</p>
+                                    <p class="hero-subtitle">Identity</p>
+                                    <h1 class="hero-title">
+                                        Memorable <span>Branding Solutions</span>
+                                    </h1>
+                                    <p class="hero-description">
+                                        Complete branding packages that tell your unique story. We develop cohesive
+                                        brand identities that resonate with your target audience.
+                                    </p>
+                                    <div class="hero-cta">
+                                        <button class="primary-btn" id="heroTalkBtn">Build Your Brand</button>
+                                        <button class="secondary-btn" data-service="branding">View Details</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Add pagination -->
+                    <div class="swiper-pagination"></div>
+
+                    <!-- Navigation buttons -->
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+            </section>
+            <!--  -->
+            <main>
+                <div class="min-h-[63.5px] md:min-h-[100.5px] lg:min-h-[100.5px]">
+                    <div class="pre-loader"></div>
+                </div>
+
+                <!-- Hero Section -->
+                <!-- <section class="hero-section">
                 <div class="hero-content">
                     <div class="glass-card">
                         <p class="hero-subtitle">Technology Solutions</p>
@@ -1846,471 +1877,485 @@ s0.parentNode.insertBefore(s1,s0);
                 <div class="shape shape3"></div>
             </section> -->
 
-              <!-- Additional Services Section -->
-            <section class="additional-services">
-                <div class="container">
-                    <div class="section-header text-center">
-                        <p class="section-subtitle">Specialized Solutions</p>
-                        <h2 class="section-title">Our Core Services</h2>
-                        <p class="section-description">Explore our specialized technology solutions designed to meet
-                            your specific
-                            business needs.</p>
-                    </div>
+                <!-- Additional Services Section -->
+                <section class="additional-services">
+                    <div class="container">
+                        <div class="section-header text-center">
+                            <p class="section-subtitle">Specialized Solutions</p>
+                            <h2 class="section-title">Our Core Services</h2>
+                            <p class="section-description">Explore our specialized technology solutions designed to meet
+                                your specific
+                                business needs.</p>
+                        </div>
 
-                    <!-- Tabs -->
-                    <div class="services-tabs">
-                        <button class="tab-btn active" data-tab="web">Web Development</button>
-                        <button class="tab-btn" data-tab="app">App Development</button>
-                        <button class="tab-btn" data-tab="uiux">UI/UX Design</button>
-                        <button class="tab-btn" data-tab="seo">SEO</button>
-                        <button class="tab-btn" data-tab="cyber">Cyber Security</button>
-                        <button class="tab-btn" data-tab="branding">Branding</button>
-                    </div>
+                        <!-- Tabs -->
+                        <div class="services-tabs">
+                            <button class="tab-btn active" data-tab="web">Web Development</button>
+                            <button class="tab-btn" data-tab="app">App Development</button>
+                            <button class="tab-btn" data-tab="uiux">UI/UX Design</button>
+                            <button class="tab-btn" data-tab="seo">SEO</button>
+                            <button class="tab-btn" data-tab="cyber">Cyber Security</button>
+                            <button class="tab-btn" data-tab="branding">Branding</button>
+                        </div>
 
-                    <div class="services-content">
-                        <!-- Web Development -->
-                        <div class="service-item active" id="web">
-                            <div class="row align-items-center">
-                                <div class="col-md-6">
-                                    <article class="service-article">
-                                        <h2>Web Development</h2>
-                                        <p>Modern, accessible, responsive websites optimized for performance. We create
-                                            digital experiences
-                                            that engage users and drive conversions.</p>
-                                        <ul class="modal-features">
-                                            <li>Responsive design for all devices</li>
-                                            <li>E-commerce solutions</li>
-                                            <li>Content Management Systems</li>
-                                            <li>Progressive Web Apps</li>
-                                            <li>Performance optimization</li>
-                                        </ul>
-                                        <!-- <div class="service-link" data-service="web">
+                        <div class="services-content">
+                            <!-- Web Development -->
+                            <div class="service-item active" id="web">
+                                <div class="row align-items-center">
+                                    <div class="col-md-6">
+                                        <article class="service-article">
+                                            <h2>Web Development</h2>
+                                            <p>Modern, accessible, responsive websites optimized for performance. We
+                                                create
+                                                digital experiences
+                                                that engage users and drive conversions.</p>
+                                            <ul class="modal-features">
+                                                <li>Responsive design for all devices</li>
+                                                <li>E-commerce solutions</li>
+                                                <li>Content Management Systems</li>
+                                                <li>Progressive Web Apps</li>
+                                                <li>Performance optimization</li>
+                                            </ul>
+                                            <!-- <div class="service-link" data-service="web">
                       Learn More <i class="fas fa-arrow-right"></i>
                     </div> -->
-                                    </article>
-                                </div>
-                                <div class="col-md-6 text-center">
-                                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                                        alt="Web Development" class="service-img">
+                                        </article>
+                                    </div>
+                                    <div class="col-md-6 text-center">
+                                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                                            alt="Web Development" class="service-img">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <!-- App Development -->
-                        <div class="service-item" id="app">
-                            <div class="row align-items-center">
-                                <div class="col-md-6">
-                                    <article class="service-article">
-                                        <h2>App Development</h2>
-                                        <p>Cross-platform apps with robust architecture and testing. We build
-                                            applications that deliver
-                                            exceptional user experiences across all platforms.</p>
-                                        <ul class="modal-features">
-                                            <li>Native iOS and Android development</li>
-                                            <li>Cross-platform solutions</li>
-                                            <li>API integration</li>
-                                            <li>Quality assurance testing</li>
-                                            <li>App store deployment</li>
-                                        </ul>
-                                        <!-- <div class="service-link" data-service="app">
+                            <!-- App Development -->
+                            <div class="service-item" id="app">
+                                <div class="row align-items-center">
+                                    <div class="col-md-6">
+                                        <article class="service-article">
+                                            <h2>App Development</h2>
+                                            <p>Cross-platform apps with robust architecture and testing. We build
+                                                applications that deliver
+                                                exceptional user experiences across all platforms.</p>
+                                            <ul class="modal-features">
+                                                <li>Native iOS and Android development</li>
+                                                <li>Cross-platform solutions</li>
+                                                <li>API integration</li>
+                                                <li>Quality assurance testing</li>
+                                                <li>App store deployment</li>
+                                            </ul>
+                                            <!-- <div class="service-link" data-service="app">
                       Learn More <i class="fas fa-arrow-right"></i>
                     </div> -->
-                                    </article>
-                                </div>
-                                <div class="col-md-6 text-center">
-                                    <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                                        alt="App Development" class="service-img">
+                                        </article>
+                                    </div>
+                                    <div class="col-md-6 text-center">
+                                        <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                                            alt="App Development" class="service-img">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <!-- UI/UX Design -->
-                        <div class="service-item" id="uiux">
-                            <div class="row align-items-center">
-                                <div class="col-md-6">
-                                    <article class="service-article">
-                                        <h2>UI/UX Design</h2>
-                                        <p>Wireframes, prototypes, and design systems. We create intuitive interfaces
-                                            that enhance user
-                                            satisfaction and drive engagement.</p>
-                                        <ul class="modal-features">
-                                            <li>User research and testing</li>
-                                            <li>Wireframing and prototyping</li>
-                                            <li>Interaction design</li>
-                                            <li>Design systems</li>
-                                            <li>Usability auditing</li>
-                                        </ul>
-                                        <!-- <div class="service-link" data-service="uiux">
+                            <!-- UI/UX Design -->
+                            <div class="service-item" id="uiux">
+                                <div class="row align-items-center">
+                                    <div class="col-md-6">
+                                        <article class="service-article">
+                                            <h2>UI/UX Design</h2>
+                                            <p>Wireframes, prototypes, and design systems. We create intuitive
+                                                interfaces
+                                                that enhance user
+                                                satisfaction and drive engagement.</p>
+                                            <ul class="modal-features">
+                                                <li>User research and testing</li>
+                                                <li>Wireframing and prototyping</li>
+                                                <li>Interaction design</li>
+                                                <li>Design systems</li>
+                                                <li>Usability auditing</li>
+                                            </ul>
+                                            <!-- <div class="service-link" data-service="uiux">
                       Learn More <i class="fas fa-arrow-right"></i>
                     </div> -->
-                                    </article>
-                                </div>
-                                <div class="col-md-6 text-center">
-                                    <img src="https://images.unsplash.com/photo-1545235617-9465d2a55698?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                                        alt="UI/UX Design" class="service-img">
+                                        </article>
+                                    </div>
+                                    <div class="col-md-6 text-center">
+                                        <img src="https://images.unsplash.com/photo-1545235617-9465d2a55698?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                                            alt="UI/UX Design" class="service-img">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <!-- SEO -->
-                        <div class="service-item" id="seo">
-                            <div class="row align-items-center">
-                                <div class="col-md-6">
-                                    <article class="service-article">
-                                        <h2>SEO</h2>
-                                        <p>Boost your online visibility and drive organic traffic. Our SEO strategies
-                                            ensure long-term
-                                            growth and top rankings on search engines.</p>
-                                        <ul class="modal-features">
-                                            <li>Keyword research and strategy</li>
-                                            <li>On-page & technical SEO</li>
-                                            <li>Link building campaigns</li>
-                                            <li>Content optimization</li>
-                                            <li>Analytics & reporting</li>
-                                        </ul>
-                                        <!-- <div class="service-link" data-service="seo">
+                            <!-- SEO -->
+                            <div class="service-item" id="seo">
+                                <div class="row align-items-center">
+                                    <div class="col-md-6">
+                                        <article class="service-article">
+                                            <h2>SEO</h2>
+                                            <p>Boost your online visibility and drive organic traffic. Our SEO
+                                                strategies
+                                                ensure long-term
+                                                growth and top rankings on search engines.</p>
+                                            <ul class="modal-features">
+                                                <li>Keyword research and strategy</li>
+                                                <li>On-page & technical SEO</li>
+                                                <li>Link building campaigns</li>
+                                                <li>Content optimization</li>
+                                                <li>Analytics & reporting</li>
+                                            </ul>
+                                            <!-- <div class="service-link" data-service="seo">
                       Learn More <i class="fas fa-arrow-right"></i>
                     </div> -->
-                                    </article>
-                                </div>
-                                <div class="col-md-6 text-center">
-                                    <img src="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                                        alt="SEO Services" class="service-img">
+                                        </article>
+                                    </div>
+                                    <div class="col-md-6 text-center">
+                                        <img src="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                                            alt="SEO Services" class="service-img">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <!-- Cyber Security -->
-                        <div class="service-item" id="cyber">
-                            <div class="row align-items-center">
-                                <div class="col-md-6">
-                                    <article class="service-article">
-                                        <h2>Cyber Security</h2>
-                                        <p>Protect your digital assets with advanced security solutions. We safeguard
-                                            your business from
-                                            cyber threats and data breaches.</p>
-                                        <ul class="modal-features">
-                                            <li>Network security</li>
-                                            <li>Vulnerability assessment</li>
-                                            <li>Penetration testing</li>
-                                            <li>Data encryption</li>
-                                            <li>24/7 monitoring</li>
-                                        </ul>
-                                        <!-- <div class="service-link" data-service="cyber">
+                            <!-- Cyber Security -->
+                            <div class="service-item" id="cyber">
+                                <div class="row align-items-center">
+                                    <div class="col-md-6">
+                                        <article class="service-article">
+                                            <h2>Cyber Security</h2>
+                                            <p>Protect your digital assets with advanced security solutions. We
+                                                safeguard
+                                                your business from
+                                                cyber threats and data breaches.</p>
+                                            <ul class="modal-features">
+                                                <li>Network security</li>
+                                                <li>Vulnerability assessment</li>
+                                                <li>Penetration testing</li>
+                                                <li>Data encryption</li>
+                                                <li>24/7 monitoring</li>
+                                            </ul>
+                                            <!-- <div class="service-link" data-service="cyber">
                       Learn More <i class="fas fa-arrow-right"></i>
                     </div> -->
-                                    </article>
-                                </div>
-                                <div class="col-md-6 text-center">
-                                    <img src="assets\images\cyber security.png" alt="Cyber Security"
-                                        class="service-img">
+                                        </article>
+                                    </div>
+                                    <div class="col-md-6 text-center">
+                                        <img src="assets\images\cyber security.png" alt="Cyber Security"
+                                            class="service-img">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <!-- Branding -->
-                        <div class="service-item" id="branding">
-                            <div class="row align-items-center">
-                                <div class="col-md-6">
-                                    <article class="service-article">
-                                        <h2>Branding</h2>
-                                        <p>Build a powerful brand identity with us. From logos to brand strategy, we
-                                            help you stand out and
-                                            connect with your audience.</p>
-                                        <ul class="modal-features">
-                                            <li>Logo design & brand identity</li>
-                                            <li>Brand guidelines</li>
-                                            <li>Marketing collateral</li>
-                                            <li>Rebranding solutions</li>
-                                            <li>Digital branding strategies</li>
-                                        </ul>
-                                        <!-- <div class="service-link" data-service="branding">
+                            <!-- Branding -->
+                            <div class="service-item" id="branding">
+                                <div class="row align-items-center">
+                                    <div class="col-md-6">
+                                        <article class="service-article">
+                                            <h2>Branding</h2>
+                                            <p>Build a powerful brand identity with us. From logos to brand strategy, we
+                                                help you stand out and
+                                                connect with your audience.</p>
+                                            <ul class="modal-features">
+                                                <li>Logo design & brand identity</li>
+                                                <li>Brand guidelines</li>
+                                                <li>Marketing collateral</li>
+                                                <li>Rebranding solutions</li>
+                                                <li>Digital branding strategies</li>
+                                            </ul>
+                                            <!-- <div class="service-link" data-service="branding">
                       Learn More <i class="fas fa-arrow-right"></i>
                     </div> -->
-                                    </article>
+                                        </article>
+                                    </div>
+                                    <div class="col-md-6 text-center">
+                                        <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                                            alt="Branding Services" class="service-img">
+                                    </div>
                                 </div>
-                                <div class="col-md-6 text-center">
-                                    <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                                        alt="Branding Services" class="service-img">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Services Section -->
+                <section id="services" class="services-section">
+                    <div class="container">
+                        <div class="section-header">
+                            <p class="section-subtitle">What We Offer</p>
+                            <h2 class="section-title">Additional Services</h2>
+                            <p class="section-description">We provide end-to-end technology solutions that empower
+                                businesses to thrive
+                                in the digital age.</p>
+                        </div>
+
+                        <div class="services-grid">
+
+                            <!-- Software Development -->
+                            <div class="service-card">
+                                <div class="service-icon">
+                                    <i class="fas fa-code"></i>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Services Section -->
-            <section id="services" class="services-section">
-                <div class="container">
-                    <div class="section-header">
-                        <p class="section-subtitle">What We Offer</p>
-                        <h2 class="section-title">Additional Services</h2>
-                        <p class="section-description">We provide end-to-end technology solutions that empower
-                            businesses to thrive
-                            in the digital age.</p>
-                    </div>
-
-                    <div class="services-grid">
-
-                         <!-- Software Development -->
-                        <div class="service-card">
-                            <div class="service-icon">
-                                <i class="fas fa-code"></i>
-                            </div>
-                            <h3 class="service-title">Software Development</h3>
-                            <p class="service-description">Custom software solutions designed to address your specific
-                                business
-                                challenges.</p>
-                            <ul class="service-features">
-                                <li>Web Application Development</li>
-                                <li>Mobile App Development</li>
-                                <li>API Development & Integration</li>
-                                <li>UI/UX Design</li>
-                                <li>Quality Assurance & Testing</li>
-                            </ul>
-                            <!-- <div class="service-link" data-service="software">
+                                <h3 class="service-title">Software Development</h3>
+                                <p class="service-description">Custom software solutions designed to address your
+                                    specific
+                                    business
+                                    challenges.</p>
+                                <ul class="service-features">
+                                    <li>Web Application Development</li>
+                                    <li>Mobile App Development</li>
+                                    <li>API Development & Integration</li>
+                                    <li>UI/UX Design</li>
+                                    <li>Quality Assurance & Testing</li>
+                                </ul>
+                                <!-- <div class="service-link" data-service="software">
                 Learn More <i class="fas fa-arrow-right"></i>
               </div> -->
-                        </div>
-
-                        <!-- Network Solutions -->
-                        <div class="service-card">
-                            <div class="service-icon">
-                                <i class="fas fa-network-wired"></i>
                             </div>
-                            <h3 class="service-title">Network Solutions</h3>
-                            <p class="service-description">Comprehensive network infrastructure design, implementation,
-                                and management
-                                for optimal performance.</p>
-                            <ul class="service-features">
-                                <li>Network Design & Implementation</li>
-                                <li>Wireless Solutions</li>
-                                <li>Network Security</li>
-                                <li>Performance Optimization</li>
-                                <li>24/7 Monitoring & Support</li>
-                            </ul>
-                            <!-- <div class="service-link" data-service="network">
+
+                            <!-- Network Solutions -->
+                            <div class="service-card">
+                                <div class="service-icon">
+                                    <i class="fas fa-network-wired"></i>
+                                </div>
+                                <h3 class="service-title">Network Solutions</h3>
+                                <p class="service-description">Comprehensive network infrastructure design,
+                                    implementation,
+                                    and management
+                                    for optimal performance.</p>
+                                <ul class="service-features">
+                                    <li>Network Design & Implementation</li>
+                                    <li>Wireless Solutions</li>
+                                    <li>Network Security</li>
+                                    <li>Performance Optimization</li>
+                                    <li>24/7 Monitoring & Support</li>
+                                </ul>
+                                <!-- <div class="service-link" data-service="network">
                 Learn More <i class="fas fa-arrow-right"></i>
               </div> -->
-                        </div>
-
-                        <!-- Cloud Services -->
-                        <div class="service-card">
-                            <div class="service-icon">
-                                <i class="fas fa-cloud"></i>
                             </div>
-                            <h3 class="service-title">Cloud Services</h3>
-                            <p class="service-description">Scalable cloud solutions that enhance flexibility, reduce
-                                costs, and
-                                improve collaboration.</p>
-                            <ul class="service-features">
-                                <li>Cloud Migration</li>
-                                <li>Infrastructure as a Service (IaaS)</li>
-                                <li>Platform as a Service (PaaS)</li>
-                                <li>Cloud Security</li>
-                                <li>Hybrid Cloud Solutions</li>
-                            </ul>
-                            <!-- <div class="service-link" data-service="cloud">
+
+                            <!-- Cloud Services -->
+                            <div class="service-card">
+                                <div class="service-icon">
+                                    <i class="fas fa-cloud"></i>
+                                </div>
+                                <h3 class="service-title">Cloud Services</h3>
+                                <p class="service-description">Scalable cloud solutions that enhance flexibility, reduce
+                                    costs, and
+                                    improve collaboration.</p>
+                                <ul class="service-features">
+                                    <li>Cloud Migration</li>
+                                    <li>Infrastructure as a Service (IaaS)</li>
+                                    <li>Platform as a Service (PaaS)</li>
+                                    <li>Cloud Security</li>
+                                    <li>Hybrid Cloud Solutions</li>
+                                </ul>
+                                <!-- <div class="service-link" data-service="cloud">
                 Learn More <i class="fas fa-arrow-right"></i>
               </div> -->
-                        </div>
-
-                        <!-- Security Solutions -->
-                        <div class="service-card">
-                            <div class="service-icon">
-                                <i class="fas fa-shield-alt"></i>
                             </div>
-                            <h3 class="service-title">Security Solutions</h3>
-                            <p class="service-description">Comprehensive security measures to protect your data,
-                                infrastructure, and
-                                business operations.</p>
-                            <ul class="service-features">
-                                <li>Cybersecurity Assessment</li>
-                                <li>Threat Detection & Prevention</li>
-                                <li>Data Encryption</li>
-                                <li>Compliance Management</li>
-                                <li>Security Awareness Training</li>
-                            </ul>
-                            <!-- <div class="service-link" data-service="security">
+
+                            <!-- Security Solutions -->
+                            <div class="service-card">
+                                <div class="service-icon">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <h3 class="service-title">Security Solutions</h3>
+                                <p class="service-description">Comprehensive security measures to protect your data,
+                                    infrastructure, and
+                                    business operations.</p>
+                                <ul class="service-features">
+                                    <li>Cybersecurity Assessment</li>
+                                    <li>Threat Detection & Prevention</li>
+                                    <li>Data Encryption</li>
+                                    <li>Compliance Management</li>
+                                    <li>Security Awareness Training</li>
+                                </ul>
+                                <!-- <div class="service-link" data-service="security">
                 Learn More <i class="fas fa-arrow-right"></i>
               </div> -->
-                        </div>
-
-                        <!-- IT Consulting -->
-                        <div class="service-card">
-                            <div class="service-icon">
-                                <i class="fas fa-laptop-code"></i>
                             </div>
-                            <h3 class="service-title">IT Consulting</h3>
-                            <p class="service-description">Strategic technology guidance to align your IT infrastructure
-                                with business
-                                objectives.</p>
-                            <ul class="service-features">
-                                <li>IT Strategy Development</li>
-                                <li>Technology Roadmapping</li>
-                                <li>Digital Transformation</li>
-                                <li>Vendor Management</li>
-                                <li>Cost Optimization</li>
-                            </ul>
-                            <!-- <div class="service-link" data-service="consulting">
+
+                            <!-- IT Consulting -->
+                            <div class="service-card">
+                                <div class="service-icon">
+                                    <i class="fas fa-laptop-code"></i>
+                                </div>
+                                <h3 class="service-title">IT Consulting</h3>
+                                <p class="service-description">Strategic technology guidance to align your IT
+                                    infrastructure
+                                    with business
+                                    objectives.</p>
+                                <ul class="service-features">
+                                    <li>IT Strategy Development</li>
+                                    <li>Technology Roadmapping</li>
+                                    <li>Digital Transformation</li>
+                                    <li>Vendor Management</li>
+                                    <li>Cost Optimization</li>
+                                </ul>
+                                <!-- <div class="service-link" data-service="consulting">
                 Learn More <i class="fas fa-arrow-right"></i>
               </div> -->
-                        </div>
-
-                        <!-- Managed Services -->
-                        <div class="service-card">
-                            <div class="service-icon">
-                                <i class="fas fa-headset"></i>
                             </div>
-                            <h3 class="service-title">Managed Services</h3>
-                            <p class="service-description">Proactive IT management to ensure optimal performance and
-                                minimize
-                                downtime.</p>
-                            <ul class="service-features">
-                                <li>24/7 Monitoring</li>
-                                <li>Help Desk Support</li>
-                                <li>Patch Management</li>
-                                <li>Backup & Disaster Recovery</li>
-                                <li>Performance Reporting</li>
-                            </ul>
-                            <!-- <div class="service-link" data-service="managed">
+
+                            <!-- Managed Services -->
+                            <div class="service-card">
+                                <div class="service-icon">
+                                    <i class="fas fa-headset"></i>
+                                </div>
+                                <h3 class="service-title">Managed Services</h3>
+                                <p class="service-description">Proactive IT management to ensure optimal performance and
+                                    minimize
+                                    downtime.</p>
+                                <ul class="service-features">
+                                    <li>24/7 Monitoring</li>
+                                    <li>Help Desk Support</li>
+                                    <li>Patch Management</li>
+                                    <li>Backup & Disaster Recovery</li>
+                                    <li>Performance Reporting</li>
+                                </ul>
+                                <!-- <div class="service-link" data-service="managed">
                 Learn More <i class="fas fa-arrow-right"></i>
               </div> -->
-                        </div>
+                            </div>
 
-                       
-                    </div>
-                </div>
-            </section>
 
-          
-
-            <!-- Process Section -->
-            <section class="process-section">
-                <div class="container">
-                    <div class="section-header">
-                        <p class="section-subtitle">Our Approach</p>
-                        <h2 class="section-title">How We Work</h2>
-                        <p class="section-description">We follow a structured process to ensure successful delivery of
-                            technology
-                            solutions.</p>
-                    </div>
-
-                    <div class="process-steps">
-                        <div class="process-step">
-                            <div class="step-number">1</div>
-                            <h3 class="step-title">Discovery & Analysis</h3>
-                            <p class="step-description">We begin by understanding your business needs, challenges, and
-                                goals to
-                                develop a comprehensive strategy.</p>
-                        </div>
-
-                        <div class="process-step">
-                            <div class="step-number">2</div>
-                            <h3 class="step-title">Planning & Design</h3>
-                            <p class="step-description">We create detailed plans and designs that align with your
-                                objectives and
-                                ensure optimal solutions.</p>
-                        </div>
-
-                        <div class="process-step">
-                            <div class="step-number">3</div>
-                            <h3 class="step-title">Implementation</h3>
-                            <p class="step-description">Our experts deploy the solutions with minimal disruption to your
-                                operations,
-                                following best practices.</p>
-                        </div>
-
-                        <div class="process-step">
-                            <div class="step-number">4</div>
-                            <h3 class="step-title">Support & Optimization</h3>
-                            <p class="step-description">We provide ongoing support, monitoring, and optimization to
-                                ensure continued
-                                performance and value.</p>
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            <!-- CTA Section -->
-            <section class="cta-section">
-                <div class="container">
-                    <div class="cta-content">
-                        <h2 class="cta-title"> Ready to Transform Your Technology Infrastructure?</h2>
-                        <p class="cta-text">
-                            Partner with us to unlock innovative solutions, strengthen your IT foundation,
-                            and accelerate business growth with confidence.
-                        </p>
-                        <div class="cta-buttons">
-                            <!-- <button class="btn-primary" id="ctaPrimaryBtn"> Get Started Today</button> -->
-                            <button class="btn-outline" id="ctaOutlineBtn"> Learn More About Us</button>
+
+
+                <!-- Process Section -->
+                <section class="process-section">
+                    <div class="container">
+                        <div class="section-header">
+                            <p class="section-subtitle">Our Approach</p>
+                            <h2 class="section-title">How We Work</h2>
+                            <p class="section-description">We follow a structured process to ensure successful delivery
+                                of
+                                technology
+                                solutions.</p>
+                        </div>
+
+                        <div class="process-steps">
+                            <div class="process-step">
+                                <div class="step-number">1</div>
+                                <h3 class="step-title">Discovery & Analysis</h3>
+                                <p class="step-description">We begin by understanding your business needs, challenges,
+                                    and
+                                    goals to
+                                    develop a comprehensive strategy.</p>
+                            </div>
+
+                            <div class="process-step">
+                                <div class="step-number">2</div>
+                                <h3 class="step-title">Planning & Design</h3>
+                                <p class="step-description">We create detailed plans and designs that align with your
+                                    objectives and
+                                    ensure optimal solutions.</p>
+                            </div>
+
+                            <div class="process-step">
+                                <div class="step-number">3</div>
+                                <h3 class="step-title">Implementation</h3>
+                                <p class="step-description">Our experts deploy the solutions with minimal disruption to
+                                    your
+                                    operations,
+                                    following best practices.</p>
+                            </div>
+
+                            <div class="process-step">
+                                <div class="step-number">4</div>
+                                <h3 class="step-title">Support & Optimization</h3>
+                                <p class="step-description">We provide ongoing support, monitoring, and optimization to
+                                    ensure continued
+                                    performance and value.</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
-
-            <!-- Enhanced Footer Section -->
-            <footer class="footer">
-                <div class="footer-container">
-                    <!-- Column 1: Logo + About -->
-                  <div class="footer-column">
-                        <div class="footer-logo">
-                        <img src="https://www.onenetworktech.com/assets/images/logo/onenetwork_logo-removebg-preview.png"
-                            alt="OneNetwork Logo" />
-                        </div>
-                        <p class="footer-about">
-                        One Network Tech, rooted in Texas with a growing presence across Asia and MENA, delivers secure, scalable digital solutions that drive business growth, efficiency, and innovation through end-to-end technology services.
-                        </p>
-                        <div class="footer-social">
-                        <a href=" https://wa.me/971586699542" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
-                        <a href="#" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.instagram.com/onenetworktech?igsh=MWF5NnZtbWc3ZHF1dA==" class="social-icon" target="_blank"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-icon" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <!-- CTA Section -->
+                <section class="cta-section">
+                    <div class="container">
+                        <div class="cta-content">
+                            <h2 class="cta-title"> Ready to Transform Your Technology Infrastructure?</h2>
+                            <p class="cta-text">
+                                Partner with us to unlock innovative solutions, strengthen your IT foundation,
+                                and accelerate business growth with confidence.
+                            </p>
+                            <div class="cta-buttons">
+                                <!-- <button class="btn-primary" id="ctaPrimaryBtn"> Get Started Today</button> -->
+                                <button class="btn-outline" id="ctaOutlineBtn"> Learn More About Us</button>
+                            </div>
                         </div>
                     </div>
+                </section>
 
-                    <!-- Column 2 -->
-                    <div class="footer-column">
-                        <h3>Quick Links</h3>
-                        <ul class="footer-links">
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="services.html">Services</a></li>
-                            <li><a href="courses.html">Courses</a></li>
-                            <li><a href="about.html">About Us</a></li>
-                            <li><a href="contact.html">Contact</a></li>
-                        </ul>
-                    </div>
 
-                    <!-- Column 3 -->
-                    <div class="footer-column">
-                        <h3>Services</h3>
-                        <ul class="footer-links">
-                            <li><a href="#services">Network Solutions</a></li>
-                            <li><a href="#services">Cloud Services</a></li>
-                            <li><a href="#services">Security Solutions</a></li>
-                            <li><a href="#services">IT Consulting</a></li>
-                            <li><a href="#services">Managed Services</a></li>
-                            <li><a href="#services">Software Development</a></li>
-                        </ul>
-                    </div>
+                <!-- Enhanced Footer Section -->
+                <footer class="footer">
+                    <div class="footer-container">
+                        <!-- Column 1: Logo + About -->
+                        <div class="footer-column">
+                            <div class="footer-logo">
+                                <img src="https://www.onenetworktech.com/assets/images/logo/onenetwork_logo-removebg-preview.png"
+                                    alt="OneNetwork Logo" />
+                            </div>
+                            <p class="footer-about">
+                                One Network Tech, rooted in Texas with a growing presence across Asia and MENA, delivers
+                                secure, scalable digital solutions that drive business growth, efficiency, and
+                                innovation through end-to-end technology services.
+                            </p>
+                            <div class="footer-social">
+                                <a href=" https://wa.me/971586699542" target="_blank" class="social-icon"><i
+                                        class="fab fa-whatsapp"></i></a>
+                                <a href="#" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                                <a href="https://www.instagram.com/onenetworktech?igsh=MWF5NnZtbWc3ZHF1dA=="
+                                    class="social-icon" target="_blank"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class="social-icon" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
 
-                    <!-- Column 4 -->
-                    <div class="footer-column">
-                        <h3>Contact Info</h3>
-                        <div class="footer-contact">
-                            <p><strong>Address:</strong> Texas, USA</p>
-                            <p><strong>Phone:</strong> +1 888-404-0386</p>
-                            <p><strong>Email:</strong> info@onenetworktech.com</p>
+                        <!-- Column 2 -->
+                        <div class="footer-column">
+                            <h3>Quick Links</h3>
+                            <ul class="footer-links">
+                                <li><a href="index.html">Home</a></li>
+                                <li><a href="services.html">Services</a></li>
+                                <li><a href="courses.html">Courses</a></li>
+                                <li><a href="about.html">About Us</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Column 3 -->
+                        <div class="footer-column">
+                            <h3>Services</h3>
+                            <ul class="footer-links">
+                                <li><a href="#services">Network Solutions</a></li>
+                                <li><a href="#services">Cloud Services</a></li>
+                                <li><a href="#services">Security Solutions</a></li>
+                                <li><a href="#services">IT Consulting</a></li>
+                                <li><a href="#services">Managed Services</a></li>
+                                <li><a href="#services">Software Development</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Column 4 -->
+                        <div class="footer-column">
+                            <h3>Contact Info</h3>
+                            <div class="footer-contact">
+                                <p><strong>Address:</strong> Texas, USA</p>
+                                <p><strong>Phone:</strong> +1 888-404-0386</p>
+                                <p><strong>Email:</strong> info@onenetworktech.com</p>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="footer-bottom">
-                    <p>&copy; 2025 OneNetwork. All rights reserved.</p>
-                </div>
-            </footer>
-        </main>
+                    <div class="footer-bottom">
+                        <p>&copy; 2025 OneNetwork. All rights reserved.</p>
+                    </div>
+                </footer>
+            </main>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -2521,9 +2566,9 @@ s0.parentNode.insertBefore(s1,s0);
             });
         });
     </script>
-     <script>
+    <script>
         // Initialize the services slider
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             // Initialize Swiper
             var swiper = new Swiper(".servicesSwiper", {
                 direction: "horizontal",
@@ -2549,22 +2594,22 @@ s0.parentNode.insertBefore(s1,s0);
 
             // Add click handlers for the "View Details" buttons
             document.querySelectorAll('.secondary-btn[data-service]').forEach(button => {
-                button.addEventListener('click', function() {
+                button.addEventListener('click', function () {
                     const serviceId = this.getAttribute('data-service');
-                    
+
                     // Scroll to the specific service section
                     document.getElementById(serviceId).scrollIntoView({
                         behavior: 'smooth'
                     });
-                    
+
                     // Also activate the corresponding tab
                     document.querySelector(`.tab-btn[data-tab="${serviceId}"]`).click();
                 });
             });
         });
 
-      // Enhanced Swiper initialization
-        document.addEventListener('DOMContentLoaded', function() {
+        // Enhanced Swiper initialization
+        document.addEventListener('DOMContentLoaded', function () {
             // Initialize Swiper with enhanced settings
             var swiper = new Swiper(".servicesSwiper", {
                 direction: "horizontal",
@@ -2588,7 +2633,7 @@ s0.parentNode.insertBefore(s1,s0);
                     prevEl: ".swiper-button-prev",
                 },
                 on: {
-                    init: function() {
+                    init: function () {
                         // Initialize progress bar
                         const progressBar = document.querySelector('.slide-progress');
                         if (progressBar) {
@@ -2596,7 +2641,7 @@ s0.parentNode.insertBefore(s1,s0);
                             progressBar.style.transition = 'width ' + (this.params.autoplay.delay / 1000) + 's linear';
                         }
                     },
-                    slideChangeTransitionStart: function() {
+                    slideChangeTransitionStart: function () {
                         // Reset and restart progress bar
                         const progressBar = document.querySelector('.slide-progress');
                         if (progressBar) {
@@ -2609,7 +2654,7 @@ s0.parentNode.insertBefore(s1,s0);
                     },
                 },
             });
-            
+
             // Start progress bar on initial load
             setTimeout(() => {
                 const progressBar = document.querySelector('.slide-progress');
@@ -2620,31 +2665,31 @@ s0.parentNode.insertBefore(s1,s0);
 
             // Add click handlers for the "View Details" buttons
             document.querySelectorAll('.secondary-btn[data-service]').forEach(button => {
-                button.addEventListener('click', function() {
+                button.addEventListener('click', function () {
                     const serviceId = this.getAttribute('data-service');
-                    
+
                     // Scroll to the specific service section
                     document.getElementById(serviceId).scrollIntoView({
                         behavior: 'smooth'
                     });
-                    
+
                     // Also activate the corresponding tab
                     document.querySelector(`.tab-btn[data-tab="${serviceId}"]`).click();
                 });
             });
-            
+
             // Pause autoplay when hovering over slider
             const swiperContainer = document.querySelector('.servicesSwiper');
             if (swiperContainer) {
-                swiperContainer.addEventListener('mouseenter', function() {
+                swiperContainer.addEventListener('mouseenter', function () {
                     swiper.autoplay.stop();
                     const progressBar = document.querySelector('.slide-progress');
                     if (progressBar) {
                         progressBar.style.transition = 'none';
                     }
                 });
-                
-                swiperContainer.addEventListener('mouseleave', function() {
+
+                swiperContainer.addEventListener('mouseleave', function () {
                     swiper.autoplay.start();
                     const progressBar = document.querySelector('.slide-progress');
                     if (progressBar) {
