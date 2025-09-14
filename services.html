@@ -1587,6 +1587,93 @@
                 justify-content: center;
             }
         }
+
+
+        /* project modal */
+
+        .project-modal {
+            display: none;
+            position: fixed;
+            z-index: 999;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(4px);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .project-modal-content {
+            background: #fff;
+            border-radius: 20px;
+            padding: 2rem;
+            max-width: 480px;
+            width: 90%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            animation: scaleIn 0.3s ease;
+            position: relative;
+            text-align: center;
+        }
+
+        .close-project-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #333;
+            transition: transform 0.2s;
+        }
+
+        .close-project-modal:hover {
+            transform: rotate(90deg);
+            color: #e63946;
+        }
+
+        .project-form .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .project-form input,
+        .project-form textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            outline: none;
+        }
+
+        .project-form input:focus,
+        .project-form textarea:focus {
+            border: 1px solid #0077ff;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #0077ff, #00b4d8);
+            color: #fff;
+            padding: 0.9rem 1.5rem;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: linear-gradient(135deg, #005bb5, #0088cc);
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0.9);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
     </style>
 </head>
 <!--Start of Tawk.to Script-->
@@ -1710,7 +1797,8 @@
                                         SEO-friendly digital experiences that drive engagement and conversions.
                                     </p>
                                     <div class="hero-cta">
-                                        <button class="primary-btn" id="heroTalkBtn">Start Your Project</button>
+                                        <button class="primary-btn open-project-modal"
+                                            data-service="Web Development">Start Your Project</button>
                                         <button class="secondary-btn" data-service="web">View Details</button>
                                     </div>
                                 </div>
@@ -1734,7 +1822,8 @@
                                         high-performance apps that deliver exceptional user experiences.
                                     </p>
                                     <div class="hero-cta">
-                                        <button class="primary-btn" id="heroTalkBtn">Discuss Your App</button>
+                                        <button class="primary-btn open-project-modal"
+                                            data-service="App Development">Discuss Your App</button>
                                         <button class="secondary-btn" data-service="app">View Details</button>
                                     </div>
                                 </div>
@@ -1759,7 +1848,8 @@
                                         functional interfaces that convert visitors into loyal customers.
                                     </p>
                                     <div class="hero-cta">
-                                        <button class="primary-btn" id="heroTalkBtn">Design With Us</button>
+                                        <button class="primary-btn open-project-modal"
+                                            data-service="UI/UX Design">Design With Us</button>
                                         <button class="secondary-btn" data-service="uiux">View Details</button>
                                     </div>
                                 </div>
@@ -1782,7 +1872,8 @@
                                         robust measures to safeguard against threats and ensure compliance.
                                     </p>
                                     <div class="hero-cta">
-                                        <button class="primary-btn" id="heroTalkBtn">Secure Your Business</button>
+                                        <button class="primary-btn open-project-modal"
+                                            data-service="Cyber Security">Secure Your Business</button>
                                         <button class="secondary-btn" data-service="cyber">View Details</button>
                                     </div>
                                 </div>
@@ -1806,7 +1897,8 @@
                                         digital presence to drive organic traffic and improve search rankings.
                                     </p>
                                     <div class="hero-cta">
-                                        <button class="primary-btn" id="heroTalkBtn">Boost Your Rankings</button>
+                                        <button class="primary-btn open-project-modal" data-service="SEO Services">Boost
+                                            Your Rankings</button>
                                         <button class="secondary-btn" data-service="seo">View Details</button>
                                     </div>
                                 </div>
@@ -1830,7 +1922,8 @@
                                         brand identities that resonate with your target audience.
                                     </p>
                                     <div class="hero-cta">
-                                        <button class="primary-btn" id="heroTalkBtn">Build Your Brand</button>
+                                        <button class="primary-btn open-project-modal" data-service="Branding">Build
+                                            Your Brand</button>
                                         <button class="secondary-btn" data-service="branding">View Details</button>
                                     </div>
                                 </div>
@@ -1846,36 +1939,41 @@
                     <div class="swiper-button-prev"></div>
                 </div>
             </section>
+
+            <!-- modal slider -->
+            <!-- Project Modal -->
+            <div class="project-modal" id="projectModal">
+                <div class="project-modal-content">
+                    <span class="close-project-modal" id="closeProjectModal">&times;</span>
+                    <h2 id="modalTitle">🚀 Start Your Project</h2>
+                    <p id="modalSubtitle">Fill out the form and we’ll get back to you shortly.</p>
+
+                    <form class="project-form" action="send-mail.php" method="POST">
+                        <!-- hidden field for service name -->
+                        <input type="hidden" name="service" id="modalService">
+
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" placeholder="Tell us about your project..." rows="4"
+                                required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- end -->
             <!--  -->
             <main>
                 <div class="min-h-[63.5px] md:min-h-[100.5px] lg:min-h-[100.5px]">
                     <div class="pre-loader"></div>
                 </div>
 
-                <!-- Hero Section -->
-                <!-- <section class="hero-section">
-                <div class="hero-content">
-                    <div class="glass-card">
-                        <p class="hero-subtitle">Technology Solutions</p>
-                        <h1 class="hero-title">
-                            Our <span>Comprehensive Services</span>
-                        </h1>
-                        <p class="hero-description">
-                            We provide end-to-end technology solutions that empower businesses to thrive in the digital
-                            age. From network infrastructure to cloud services and cybersecurity, we've got you covered.
-                        </p>
-                        <div class="hero-cta">
-                            <button class="primary-btn" id="heroTalkBtn">Get Free Consultation</button>
-                          
-                        </div>
-                    </div>
-                </div>
-
-                
-                <div class="shape shape1"></div>
-                <div class="shape shape2"></div>
-                <div class="shape shape3"></div>
-            </section> -->
 
                 <!-- Additional Services Section -->
                 <section class="additional-services">
@@ -2478,7 +2576,6 @@
             // Modal open/close logic
             const modal = document.getElementById('talkModal');
             const closeModalBtn = document.getElementById('closeModal');
-            const heroTalkBtn = document.getElementById('heroTalkBtn');
             const openTalkModalBtn = document.getElementById('openTalkModal');
             const ctaPrimaryBtn = document.getElementById('ctaPrimaryBtn');
             const ctaOutlineBtn = document.getElementById('ctaOutlineBtn');
@@ -2495,10 +2592,6 @@
 
             if (openTalkModalBtn) {
                 openTalkModalBtn.addEventListener('click', openModal);
-            }
-
-            if (heroTalkBtn) {
-                heroTalkBtn.addEventListener('click', openModal);
             }
 
             if (ctaPrimaryBtn) {
@@ -2699,6 +2792,37 @@
                 });
             }
         });
+
+        const openButtons = document.querySelectorAll('.open-project-modal');
+        const projectModal = document.getElementById('projectModal');
+        const closeProjectModal = document.getElementById('closeProjectModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalSubtitle = document.getElementById('modalSubtitle');
+        const modalService = document.getElementById('modalService');
+
+        // Open modal with dynamic service
+        openButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const serviceName = btn.getAttribute('data-service') || 'General Inquiry';
+                modalTitle.textContent = btn.textContent;   // Button text as title
+                modalService.value = serviceName;           // Hidden input for PHP
+                modalSubtitle.textContent = `Request for ${serviceName}. Fill out the form and we’ll get back to you shortly.`;
+                projectModal.style.display = 'flex';
+            });
+        });
+
+        // Close modal
+        closeProjectModal.addEventListener('click', () => {
+            projectModal.style.display = 'none';
+        });
+
+        // Close when clicking outside
+        window.addEventListener('click', e => {
+            if (e.target === projectModal) {
+                projectModal.style.display = 'none';
+            }
+        });
+
     </script>
 </body>
 
