@@ -43,13 +43,282 @@
         rel="stylesheet">
 
     <style>
-        /* ===================== */
-        /* Reset & Base */
-        /* ===================== */
+     
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+   .services-hero {
+            position: relative;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        .swiper {
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-slide {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Parallax Background with Zoom Effect */
+        .slide-background {
+            position: absolute;
+            top: -10%;
+            left: -10%;
+            width: 120%;
+            height: 120%;
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.65);
+            transform: scale(1.2);
+            transition: transform 10s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            z-index: -1;
+        }
+        
+        .swiper-slide-active .slide-background {
+            transform: scale(1);
+        }
+
+        /* Enhanced Glass Card */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 3rem;
+            text-align: center;
+            color: #fff;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0;
+            transform: translateY(50px) scale(0.95);
+            transition: all 1s cubic-bezier(0.215, 0.61, 0.355, 1);
+            max-width: 800px;
+            width: 90%;
+        }
+        
+        .swiper-slide-active .glass-card {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        /* Service Number Styling */
+        .service-number {
+            font-size: 0.9rem;
+            color: var(--accent-light);
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease 0.2s;
+        }
+        
+        .swiper-slide-active .service-number {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Hero Subtitle */
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--accent-light);
+            margin-bottom: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease 0.4s;
+        }
+        
+        .swiper-slide-active .hero-subtitle {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Hero Title */
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease 0.6s;
+        }
+        
+        .swiper-slide-active .hero-title {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .hero-title span {
+            color: var(--accent-light);
+            background: linear-gradient(135deg, var(--accent-light), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        /* Hero Description */
+        .hero-description {
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+            color: #E5E7EB;
+            line-height: 1.6;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease 0.8s;
+        }
+        
+        .swiper-slide-active .hero-description {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Hero CTA */
+        .hero-cta {
+            margin-top: 2rem;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease 1s;
+        }
+        
+        .swiper-slide-active .hero-cta {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Buttons */
+        .primary-btn, .secondary-btn {
+            padding: 14px 32px;
+            border-radius: 50px;
+            margin: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .primary-btn {
+            background: linear-gradient(135deg, var(--accent), var(--primary));
+            color: #fff;
+            box-shadow: 0 6px 18px rgba(0, 124, 240, 0.35);
+        }
+        
+        .primary-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 22px rgba(0, 201, 167, 0.45);
+        }
+        
+        .secondary-btn {
+            background: transparent;
+            border: 2px solid var(--accent-light);
+            color: var(--accent-light);
+        }
+        
+        .secondary-btn:hover {
+            background: var(--accent-light);
+            color: #fff;
+            transform: translateY(-3px);
+        }
+
+        /* Swiper Pagination with Progress Effect */
+        .swiper-pagination {
+            bottom: 30px !important;
+        }
+        
+        .swiper-pagination-bullet {
+            width: 14px;
+            height: 14px;
+            background: rgba(255, 255, 255, 0.4);
+            opacity: 1;
+            position: relative;
+            margin: 0 8px !important;
+            transition: all 0.3s ease;
+        }
+        
+        .swiper-pagination-bullet-active {
+            background: var(--accent-light);
+            box-shadow: 0 0 10px var(--accent-light);
+            transform: scale(1.2);
+        }
+
+        /* Navigation Arrows */
+        .swiper-button-next, .swiper-button-prev {
+            color: #fff;
+            background: rgba(0, 0, 0, 0.4);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .swiper-button-next:after, .swiper-button-prev:after {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .swiper-button-next:hover, .swiper-button-prev:hover {
+            background: rgba(0, 0, 0, 0.6);
+            transform: scale(1.1);
+        }
+
+        /* Slide Progress Bar */
+        .swiper-progress-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 3px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            z-index: 10;
+        }
+        
+        .swiper-progress-bar .slide-progress {
+            height: 100%;
+            width: 0%;
+            background: var(--accent-light);
+            transition: width linear;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .glass-card {
+                padding: 2rem;
+                width: 95%;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-description {
+                font-size: 1.1rem;
+            }
+            
+            .swiper-button-next, .swiper-button-prev {
+                display: none;
+            }
+            
+            .primary-btn, .secondary-btn {
+                padding: 12px 24px;
+                font-size: 0.9rem;
+            }
         }
 
         :root {
@@ -760,12 +1029,13 @@
             font-weight: 600;
             cursor: pointer;
             transition: var(--transition);
+            color: var(--gray-light);
         }
 
         .tab-btn:hover,
         .tab-btn.active {
             background: var(--gradient-primary);
-            color: white;
+            color: rgb(255, 255, 255);
             border-color: transparent;
         }
 
@@ -1392,14 +1662,167 @@ s0.parentNode.insertBefore(s1,s0);
                 </form>
             </div>
         </div>
+<!--  -->
 
+  <main>
+         <!-- Enhanced Hero Slider -->
+    <section class="services-hero">
+        <div class="swiper servicesSwiper">
+            <!-- Progress Bar -->
+            <div class="swiper-progress-bar">
+                <div class="slide-progress"></div>
+            </div>
+            
+            <div class="swiper-wrapper">
+                <!-- Slide 1: Web Development -->
+                <div class="swiper-slide">
+                    <div class="slide-background" style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80');"></div>
+                    <div class="slide-content">
+                        <div class="glass-card">
+                            <p class="service-number">Service 01</p>
+                            <p class="hero-subtitle">Web Solutions</p>
+                            <h1 class="hero-title">
+                                Professional <span>Web Development</span>
+                            </h1>
+                            <p class="hero-description">
+                                Custom websites and web applications built with cutting-edge technologies. We create responsive, 
+                                SEO-friendly digital experiences that drive engagement and conversions.
+                            </p>
+                            <div class="hero-cta">
+                                <button class="primary-btn" id="heroTalkBtn">Start Your Project</button>
+                                <button class="secondary-btn" data-service="web">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 2: App Development -->
+                <div class="swiper-slide">
+                    <div class="slide-background" style="background-image: url('https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80');"></div>
+                    <div class="slide-content">
+                        <div class="glass-card">
+                            <p class="service-number">Service 02</p>
+                            <p class="hero-subtitle">Mobile Solutions</p>
+                            <h1 class="hero-title">
+                                Cross-Platform <span>App Development</span>
+                            </h1>
+                            <p class="hero-description">
+                                Native and hybrid mobile applications for iOS and Android. We build intuitive, 
+                                high-performance apps that deliver exceptional user experiences.
+                            </p>
+                            <div class="hero-cta">
+                                <button class="primary-btn" id="heroTalkBtn">Discuss Your App</button>
+                                <button class="secondary-btn" data-service="app">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 3: UI/UX Design -->
+                <div class="swiper-slide">
+                    <div class="slide-background" style="background-image: url('https://images.unsplash.com/photo-1545235617-9465d2a55698?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80');"></div>
+                    <div class="slide-content">
+                        <div class="glass-card">
+                            <p class="service-number">Service 03</p>
+                            <p class="hero-subtitle">Design Excellence</p>
+                            <h1 class="hero-title">
+                                Intuitive <span>UI/UX Design</span>
+                            </h1>
+                            <p class="hero-description">
+                                User-centered designs that enhance engagement and satisfaction. We create beautiful, 
+                                functional interfaces that convert visitors into loyal customers.
+                            </p>
+                            <div class="hero-cta">
+                                <button class="primary-btn" id="heroTalkBtn">Design With Us</button>
+                                <button class="secondary-btn" data-service="uiux">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 4: Cyber Security -->
+                <div class="swiper-slide">
+                    <div class="slide-background" style="background-image: url('assets/images/cyber%20security1.jpg');"></div>
+                    <div class="slide-content">
+                        <div class="glass-card">
+                            <p class="service-number">Service 04</p>
+                            <p class="hero-subtitle">Protection</p>
+                            <h1 class="hero-title">
+                                Advanced <span>Cyber Security</span>
+                            </h1>
+                            <p class="hero-description">
+                                Comprehensive security solutions to protect your digital assets. We implement 
+                                robust measures to safeguard against threats and ensure compliance.
+                            </p>
+                            <div class="hero-cta">
+                                <button class="primary-btn" id="heroTalkBtn">Secure Your Business</button>
+                                <button class="secondary-btn" data-service="cyber">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 5: SEO -->
+                <div class="swiper-slide">
+                    <div class="slide-background" style="background-image: url('https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80');"></div>
+                    <div class="slide-content">
+                        <div class="glass-card">
+                            <p class="service-number">Service 05</p>
+                            <p class="hero-subtitle">Visibility</p>
+                            <h1 class="hero-title">
+                                Strategic <span>SEO Services</span>
+                            </h1>
+                            <p class="hero-description">
+                                Data-driven SEO strategies to boost your online visibility. We optimize your 
+                                digital presence to drive organic traffic and improve search rankings.
+                            </p>
+                            <div class="hero-cta">
+                                <button class="primary-btn" id="heroTalkBtn">Boost Your Rankings</button>
+                                <button class="secondary-btn" data-service="seo">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 6: Branding -->
+                <div class="swiper-slide">
+                    <div class="slide-background" style="background-image: url('https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80');"></div>
+                    <div class="slide-content">
+                        <div class="glass-card">
+                            <p class="service-number">Service 06</p>
+                            <p class="hero-subtitle">Identity</p>
+                            <h1 class="hero-title">
+                                Memorable <span>Branding Solutions</span>
+                            </h1>
+                            <p class="hero-description">
+                                Complete branding packages that tell your unique story. We develop cohesive 
+                                brand identities that resonate with your target audience.
+                            </p>
+                            <div class="hero-cta">
+                                <button class="primary-btn" id="heroTalkBtn">Build Your Brand</button>
+                                <button class="secondary-btn" data-service="branding">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Add pagination -->
+            <div class="swiper-pagination"></div>
+            
+            <!-- Navigation buttons -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </section>
+<!--  -->
         <main>
             <div class="min-h-[63.5px] md:min-h-[100.5px] lg:min-h-[100.5px]">
                 <div class="pre-loader"></div>
             </div>
 
             <!-- Hero Section -->
-            <section class="hero-section">
+            <!-- <section class="hero-section">
                 <div class="hero-content">
                     <div class="glass-card">
                         <p class="hero-subtitle">Technology Solutions</p>
@@ -1412,16 +1835,16 @@ s0.parentNode.insertBefore(s1,s0);
                         </p>
                         <div class="hero-cta">
                             <button class="primary-btn" id="heroTalkBtn">Get Free Consultation</button>
-                            <!-- <button class="secondary-btn">Explore Solutions</button> -->
+                          
                         </div>
                     </div>
                 </div>
 
-                <!-- Background floating shapes -->
+                
                 <div class="shape shape1"></div>
                 <div class="shape shape2"></div>
                 <div class="shape shape3"></div>
-            </section>
+            </section> -->
 
               <!-- Additional Services Section -->
             <section class="additional-services">
@@ -1617,7 +2040,7 @@ s0.parentNode.insertBefore(s1,s0);
             </section>
 
             <!-- Services Section -->
-            <section class="services-section">
+            <section id="services" class="services-section">
                 <div class="container">
                     <div class="section-header">
                         <p class="section-subtitle">What We Offer</p>
@@ -1649,7 +2072,7 @@ s0.parentNode.insertBefore(s1,s0);
                 Learn More <i class="fas fa-arrow-right"></i>
               </div> -->
                         </div>
-                        
+
                         <!-- Network Solutions -->
                         <div class="service-card">
                             <div class="service-icon">
@@ -1831,20 +2254,19 @@ s0.parentNode.insertBefore(s1,s0);
             <footer class="footer">
                 <div class="footer-container">
                     <!-- Column 1: Logo + About -->
-                    <div class="footer-column">
+                  <div class="footer-column">
                         <div class="footer-logo">
-                            <img src="https://www.onenetworktech.com/assets/images/logo/onenetwork_logo-removebg-preview.png"
-                                alt="OneNetwork Logo" />
+                        <img src="https://www.onenetworktech.com/assets/images/logo/onenetwork_logo-removebg-preview.png"
+                            alt="OneNetwork Logo" />
                         </div>
                         <p class="footer-about">
-                            OneNetwork provides cutting-edge technology solutions and network services from our base in
-                            Texas, USA.
+                        One Network Tech, rooted in Texas with a growing presence across Asia and MENA, delivers secure, scalable digital solutions that drive business growth, efficiency, and innovation through end-to-end technology services.
                         </p>
                         <div class="footer-social">
-                            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href=" https://wa.me/971586699542" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/onenetworktech?igsh=MWF5NnZtbWc3ZHF1dA==" class="social-icon" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                         </div>
                     </div>
 
@@ -1864,12 +2286,12 @@ s0.parentNode.insertBefore(s1,s0);
                     <div class="footer-column">
                         <h3>Services</h3>
                         <ul class="footer-links">
-                            <li><a href="/services/network">Network Solutions</a></li>
-                            <li><a href="/services/cloud">Cloud Services</a></li>
-                            <li><a href="/services/security">Security Solutions</a></li>
-                            <li><a href="/services/consulting">IT Consulting</a></li>
-                            <li><a href="/services/support">Managed Services</a></li>
-                            <li><a href="/services/development">Software Development</a></li>
+                            <li><a href="#services">Network Solutions</a></li>
+                            <li><a href="#services">Cloud Services</a></li>
+                            <li><a href="#services">Security Solutions</a></li>
+                            <li><a href="#services">IT Consulting</a></li>
+                            <li><a href="#services">Managed Services</a></li>
+                            <li><a href="#services">Software Development</a></li>
                         </ul>
                     </div>
 
@@ -2097,6 +2519,140 @@ s0.parentNode.insertBefore(s1,s0);
                     alert(`You clicked on ${service} service. This could open a detailed view.`);
                 });
             });
+        });
+    </script>
+     <script>
+        // Initialize the services slider
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize Swiper
+            var swiper = new Swiper(".servicesSwiper", {
+                direction: "horizontal",
+                loop: true,
+                autoplay: {
+                    delay: 6000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+                effect: "fade",
+                fadeEffect: {
+                    crossFade: true
+                },
+                speed: 1000,
+            });
+
+            // Add click handlers for the "View Details" buttons
+            document.querySelectorAll('.secondary-btn[data-service]').forEach(button => {
+                button.addEventListener('click', function() {
+                    const serviceId = this.getAttribute('data-service');
+                    
+                    // Scroll to the specific service section
+                    document.getElementById(serviceId).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    // Also activate the corresponding tab
+                    document.querySelector(`.tab-btn[data-tab="${serviceId}"]`).click();
+                });
+            });
+        });
+
+      // Enhanced Swiper initialization
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize Swiper with enhanced settings
+            var swiper = new Swiper(".servicesSwiper", {
+                direction: "horizontal",
+                loop: true,
+                speed: 1200,
+                autoplay: {
+                    delay: 6000,
+                    disableOnInteraction: false,
+                },
+                effect: "fade",
+                fadeEffect: {
+                    crossFade: true
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                    dynamicBullets: true,
+                },
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+                on: {
+                    init: function() {
+                        // Initialize progress bar
+                        const progressBar = document.querySelector('.slide-progress');
+                        if (progressBar) {
+                            progressBar.style.width = '0%';
+                            progressBar.style.transition = 'width ' + (this.params.autoplay.delay / 1000) + 's linear';
+                        }
+                    },
+                    slideChangeTransitionStart: function() {
+                        // Reset and restart progress bar
+                        const progressBar = document.querySelector('.slide-progress');
+                        if (progressBar) {
+                            progressBar.style.width = '0%';
+                            progressBar.style.transition = 'width ' + (this.params.autoplay.delay / 1000) + 's linear';
+                            setTimeout(() => {
+                                progressBar.style.width = '100%';
+                            }, 50);
+                        }
+                    },
+                },
+            });
+            
+            // Start progress bar on initial load
+            setTimeout(() => {
+                const progressBar = document.querySelector('.slide-progress');
+                if (progressBar) {
+                    progressBar.style.width = '100%';
+                }
+            }, 100);
+
+            // Add click handlers for the "View Details" buttons
+            document.querySelectorAll('.secondary-btn[data-service]').forEach(button => {
+                button.addEventListener('click', function() {
+                    const serviceId = this.getAttribute('data-service');
+                    
+                    // Scroll to the specific service section
+                    document.getElementById(serviceId).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    // Also activate the corresponding tab
+                    document.querySelector(`.tab-btn[data-tab="${serviceId}"]`).click();
+                });
+            });
+            
+            // Pause autoplay when hovering over slider
+            const swiperContainer = document.querySelector('.servicesSwiper');
+            if (swiperContainer) {
+                swiperContainer.addEventListener('mouseenter', function() {
+                    swiper.autoplay.stop();
+                    const progressBar = document.querySelector('.slide-progress');
+                    if (progressBar) {
+                        progressBar.style.transition = 'none';
+                    }
+                });
+                
+                swiperContainer.addEventListener('mouseleave', function() {
+                    swiper.autoplay.start();
+                    const progressBar = document.querySelector('.slide-progress');
+                    if (progressBar) {
+                        progressBar.style.transition = 'width ' + (swiper.params.autoplay.delay / 1000) + 's linear';
+                        progressBar.style.width = '100%';
+                    }
+                });
+            }
         });
     </script>
 </body>
