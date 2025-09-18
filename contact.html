@@ -1352,18 +1352,18 @@
         <span class="close-modal" id="closeModal">&times;</span>
         <h2>Get Free Consulation </h2>
         <p>Fill out the form and we'll get back to you shortly.</p>
-        <form class="talk-form" action="send-mail.php" method="POST">
+       <form class="talk-form" action="send-mail.php" method="POST">
           <div class="form-group">
-            <input type="text" placeholder="Your Name" required>
+            <input type="text" name="name" placeholder="Your Name" required>
           </div>
           <div class="form-group">
             <input type="text" name="mobile" placeholder="Your Mobile Number" required>
           </div>
           <div class="form-group">
-            <input type="email" placeholder="Your Email" required>
+            <input type="email" name="email" placeholder="Your Email" required>
           </div>
           <div class="form-group">
-            <textarea placeholder="Your Message" rows="4" required></textarea>
+            <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
           </div>
           <button type="submit" class="submit-btn">Send Message</button>
         </form>
